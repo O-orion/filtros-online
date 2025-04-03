@@ -1,42 +1,39 @@
 
-/* Corpo */
 body {
     background-color: #2C2F40;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    text-align: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-/* Container principal */
 .container {
     background: #3B3F56;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    max-width: 400px;
-    width: 100%;
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
 }
 
-/* Título */
 h1 {
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 10px;
 }
 
-/* Parágrafo explicativo */
 p {
-    font-size: 14px;
+    font-size: 16px;
     opacity: 0.8;
     margin-bottom: 20px;
 }
 
-/* Botão de upload de imagem */
 .file-label {
     background: #FF6F61;
-    padding: 12px;
+    padding: 12px 20px;
     border-radius: 8px;
     display: inline-block;
     cursor: pointer;
@@ -52,22 +49,53 @@ input[type="file"] {
     display: none;
 }
 
-/* Select */
-.filter-select {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    background: #fff;
-    color: #333;
-    font-size: 16px;
+.filter-buttons {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
-/* Botão */
+.filter-buttons label {
+    background: #4CAF50;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.filter-buttons label:hover {
+    background: #3D8B40;
+}
+
+.filter-buttons input[type="checkbox"] {
+    display: none;
+}
+
+.filter-buttons label input[type="checkbox"]:checked {
+
+}
+
+.filter-buttons label:has(input[type="checkbox"]:checked) {
+    background: #4A90E2;
+}
+
+.intensity-slider {
+    margin: 20px 0;
+}
+
+.intensity-slider label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.intensity-slider input[type="range"] {
+    width: 100%;
+}
+
 button {
     width: 100%;
-    margin-top: 15px;
     padding: 12px;
     border: none;
     border-radius: 5px;
@@ -83,17 +111,50 @@ button:hover {
     background-color: #3D8B40;
 }
 
-/* Resultado */
-.result-label {
-    margin-top: 15px;
-    font-size: 16px;
+.error {
+    color: #FF6F61;
     font-weight: bold;
+    margin-top: 15px;
 }
 
-/* Imagem filtrada */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.image-box {
+    text-align: center;
+}
+
+.image-box p {
+    font-size: 16px;
+    margin: 10px 0;
+    opacity: 1;
+}
+
 .image-preview {
-    margin-top: 15px;
+    max-width: 400px;
     width: 100%;
     border-radius: 8px;
-    border: 2px solid #fff;
+    border: 3px solid #FF6F61;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #FF6F61;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.download-btn:hover {
+    background: #E85E53;
 }

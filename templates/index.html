@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>📸 Edite Sua Imagem Online</h1>
-        <p>Envie uma imagem e aplique um filtro</p>
+        <p>Envie uma imagem e aplique filtros</p>
 
         <form method="POST" enctype="multipart/form-data">
             <label for="imageUpload" class="file-label">
@@ -17,18 +17,40 @@
                 <input type="file" name="image" id="imageUpload" accept="image/*" required>
             </label>
 
-            <select name="filter" class="filter-select">
-                <option value="bw">Preto e Branco</option>
-                <option value="sepia">Sépia</option>
-                <option value="blur">Blur (Desfoque)</option>
-            </select>
+            <div class="filter-buttons">
+                <label><input type="checkbox" name="filter" value="bw" > Preto e Branco</label>
+                <label><input type="checkbox" name="filter" value="sepia"> Sépia</label>
+                <label><input type="checkbox" name="filter" value="blur"> Blur</label>
+                <label><input type="checkbox" name="filter" value="negative"> Negativo</label>
+                <label><input type="checkbox" name="filter" value="edges"> Bordas</label>
+                <label><input type="checkbox" name="filter" value="bright"> Brilho</label>
+                <label><input type="checkbox" name="filter" value="vintage"> Vintage</label>
+            </div>
 
-            <button type="submit">✨ Aplicar Filtro</button>
+            <div class="intensity-slider">
+                <label for="intensity">Intensidade do Blur (5-25):</label>
+                <input type="range" name="intensity" id="intensity" min="5" max="25" value="15">
+            </div>
+
+            <button type="submit">✨ Aplicar Filtros</button>
         </form>
 
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
         {% if filtered_image %}
-            <p class="result-label">Filtro Aplicado: <strong>{{ filter_name }}</strong></p>
-            <img src="{{ url_for('uploads', filename=filtered_image) }}" alt="Imagem filtrada" class="image-preview">
+            <div class="image-container">
+                <div class="image-box">
+                    <p>Original</p>
+                    <img src="{{ url_for('uploads', filename=original_image) }}" alt="Original" class="image-preview">
+                </div>
+                <div class="image-box">
+                    <p>Filtro: {{ filter_name }}</p>
+                    <img src="{{ url_for('uploads', filename=filtered_image) }}" alt="Filtrada" class="image-preview">
+                    <a href="{{ url_for('uploads', filename=filtered_image) }}" download class="download-btn">Baixar 📸​</a>
+                </div>
+            </div>
         {% endif %}
     </div>
 </body>
