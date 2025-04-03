@@ -1,0 +1,99 @@
+
+/* Corpo */
+body {
+    background-color: #2C2F40;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Container principal */
+.container {
+    background: #3B3F56;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Título */
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Parágrafo explicativo */
+p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+/* Botão de upload de imagem */
+.file-label {
+    background: #FF6F61;
+    padding: 12px;
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.file-label:hover {
+    background: #E85E53;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Select */
+.filter-select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    background: #fff;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Botão */
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #3D8B40;
+}
+
+/* Resultado */
+.result-label {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Imagem filtrada */
+.image-preview {
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #fff;
+}

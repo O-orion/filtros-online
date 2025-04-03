@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Imagens Online</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📸 Edite Sua Imagem Online</h1>
+        <p>Envie uma imagem e aplique um filtro</p>
+
+        <form method="POST" enctype="multipart/form-data">
+            <label for="imageUpload" class="file-label">
+                Escolher Imagem
+                <input type="file" name="image" id="imageUpload" accept="image/*" required>
+            </label>
+
+            <select name="filter" class="filter-select">
+                <option value="bw">Preto e Branco</option>
+                <option value="sepia">Sépia</option>
+                <option value="blur">Blur (Desfoque)</option>
+            </select>
+
+            <button type="submit">✨ Aplicar Filtro</button>
+        </form>
+
+        {% if filtered_image %}
+            <p class="result-label">Filtro Aplicado: <strong>{{ filter_name }}</strong></p>
+            <img src="{{ url_for('uploads', filename=filtered_image) }}" alt="Imagem filtrada" class="image-preview">
+        {% endif %}
+    </div>
+</body>
+</html>
